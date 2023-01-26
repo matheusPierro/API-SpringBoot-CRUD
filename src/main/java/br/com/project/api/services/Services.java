@@ -62,7 +62,7 @@ public class Services {
         if (action.countByCode(code) == 0) {
             message.setMessage("O código informado não existe.");
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
-        }else {
+        } else {
             Person obj = action.findByCode(code);
             action.delete(obj);
             message.setMessage("Pessoa removida com sucesso!");

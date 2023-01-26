@@ -32,94 +32,79 @@ public class Controller {
     }
 
     @GetMapping("/selectbycode/{code}")
-    public ResponseEntity<?> selectByCode(@PathVariable int code){
+    public ResponseEntity<?> selectByCode(@PathVariable int code) {
         return service.selectByCode(code);
     }
 
     @GetMapping("/selectbyname/{name}")
-    public List<Person> selectByName(@PathVariable String name){
+    public List<Person> selectByName(@PathVariable String name) {
         return action.findByName(name);
     }
 
     @PutMapping("/edit")
-    public ResponseEntity<?> edit(@RequestBody Person obj){
+    public ResponseEntity<?> edit(@RequestBody Person obj) {
         return service.edit(obj);
     }
 
     @DeleteMapping("/remove/{code}")
-    public ResponseEntity<?> remove(@PathVariable int code){
+    public ResponseEntity<?> remove(@PathVariable int code) {
         return service.remove(code);
     }
 
     @GetMapping("/count")
-    public long count(){
+    public long count() {
         return action.count();
     }
 
     @GetMapping("/orderbyname")
-    public List<Person> orderByName(){
+    public List<Person> orderByName() {
         return action.findByOrderByName();
     }
 
     @GetMapping("/orderbynamedesc")
-    public List<Person> orderByNameDesc(){
+    public List<Person> orderByNameDesc() {
         return action.findByOrderByNameDesc();
     }
 
     @GetMapping("/selectbynameorderbyagedesc/{name}")
-    public List<Person> findByNameOrderByAgeDesc(@PathVariable String name){
+    public List<Person> findByNameOrderByAgeDesc(@PathVariable String name) {
         return action.findByNameOrderByAgeDesc(name);
     }
 
     @GetMapping("/selectbynamecontaining/{term}")
-    public List<Person> nameContaining(@PathVariable String term){
+    public List<Person> nameContaining(@PathVariable String term) {
         return action.findByNameContaining(term);
     }
 
     @GetMapping("/selectbynamestartswith/{term}")
-    public List<Person> nameStartsWith(@PathVariable String term){
+    public List<Person> nameStartsWith(@PathVariable String term) {
         return action.findByNameStartsWith(term);
     }
 
     @GetMapping("/selectbynameendswith/{term}")
-    public List<Person> nameEndsWith(@PathVariable String term){
+    public List<Person> nameEndsWith(@PathVariable String term) {
         return action.findByNameEndsWith(term);
     }
 
     @GetMapping("/agesum")
-    public int ageSum(){
+    public int ageSum() {
         return action.ageSum();
     }
 
-@GetMapping("/agegreaterthan/{age}")
-public List<Person> ageGreaterThan(@PathVariable int age){
+    @GetMapping("/agegreaterthan/{age}")
+    public List<Person> ageGreaterThan(@PathVariable int age) {
         return action.ageGreaterThan(age);
-}
+    }
 
-@GetMapping("/status")
-public ResponseEntity<?> status(){
+    @GetMapping("/status")
+    public ResponseEntity<?> status() {
         return new ResponseEntity<>(HttpStatus.CREATED);
-}
+    }
 
-@PostMapping("/client")
-public void client(@Valid @RequestBody Client obj){
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @PostMapping("/client")
+    public void client(@Valid @RequestBody Client obj) {
+          
+    }
 
 
     @GetMapping("")

@@ -13,6 +13,7 @@ public interface Repositories extends CrudRepository<Person, Integer> {
     List<Person> findAll();
 
     Person findByCode(int code);
+
     List<Person> findByName(String name);
 
     List<Person> findByOrderByName();
@@ -25,7 +26,7 @@ public interface Repositories extends CrudRepository<Person, Integer> {
 
     List<Person> findByNameStartsWith(String term);
 
-    List<Person>findByNameEndsWith(String term);
+    List<Person> findByNameEndsWith(String term);
 
     @Query(value = "SELECT SUM(age) FROM people", nativeQuery = true)
     int ageSum();
@@ -33,7 +34,6 @@ public interface Repositories extends CrudRepository<Person, Integer> {
     @Query(value = "SELECT * FROM people WHERE age >= :age", nativeQuery = true)
     List<Person> ageGreaterThan(int age);
 
-//    @Query(value = "SELECT COUNT(*) FROM people WHERE code = :code", nativeQuery = true)
     int countByCode(int code);
 
 }
